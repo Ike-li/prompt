@@ -63,19 +63,19 @@ def test_get_variables():
 def test_validate_with_all_variables():
     """Test validate returns True when all variables provided."""
     template = PromptTemplate("Hello {name}")
-    assert template.validate(name="Alice") == True
+    assert template.validate(name="Alice")
 
 
 def test_validate_with_missing_variables():
     """Test validate returns False when variables missing."""
     template = PromptTemplate("Hello {name}, you are {age}")
-    assert template.validate(name="Alice") == False
+    assert not template.validate(name="Alice")
 
 
 def test_validate_with_defaults():
     """Test validate with default values."""
     template = PromptTemplate("Hello {name}", name="World")
-    assert template.validate() == True
+    assert template.validate()
 
 
 def test_template_str():
